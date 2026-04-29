@@ -1,0 +1,22 @@
+# Variables de entorno
+.env
+
+# Docker Compose real
+docker-compose.yml
+
+# Dependencias
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+CLAUDE.md
+.claude/
