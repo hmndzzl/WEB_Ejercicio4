@@ -10,9 +10,14 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 RUN echo "server { \
     listen 80; \
     location / { \
-    root /usr/share/nginx/html; \
-    index index.html index.htm; \
-    try_files \$uri \$uri/ /index.html; \
+        root /usr/share/nginx/html; \
+        index index.html index.htm; \
+        try_files \$uri \$uri/ /index.html; \
+    } \
+    location /api/ { \
+        proxy_pass https://api.r6data.eu/api/; \
+        proxy_ssl_server_name on; \
+        proxy_ssl_verify off; \
     } \
     }" > /etc/nginx/conf.d/default.conf
 
